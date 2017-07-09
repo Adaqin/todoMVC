@@ -40,5 +40,15 @@
 					}
 				}
 			}
+			//4. 获取剩余未完成的数量
+			$scope.getLeftCount=function(){
+				var count=0;
+				for(var i=0; i<$scope.todoList.length; i++){
+					if(!$scope.todoList[i].isCompleted){
+						count++;
+					}
+				}
+				return count;
+			}
 		}])
 })(angular)
