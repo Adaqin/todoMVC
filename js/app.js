@@ -22,11 +22,21 @@
 				$scope.todoList.push(newTodu);
 				$scope.newTodo="";
 			}
-			//实现删除功能
+			//2.实现删除功能
 			$scope.delTodo = function(id){
 				for(var i=0; i<$scope.todoList.length; i++){
 					if($scope.todoList[i].id==id){
 						$scope.todoList.splice(i, 1);
+					}
+				}
+			}
+			//3. 实现编辑功能
+			$scope.editTodo = function(id){
+				for(var i=0; i<$scope.todoList.length; i++){
+					$scope.todoList[i].isEdit=false;
+					if($scope.todoList[i].id== id){
+						$scope.todoList[i].isEdit=true;
+						
 					}
 				}
 			}
