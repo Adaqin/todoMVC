@@ -13,8 +13,8 @@
 		<section class="todoapp" ng-app="app" ng-controller="todoCtrl">
 			<header class="header">
 				<h1>todos</h1>
-				<form>
-					<input class="new-todo" autofocus>
+				<form ng-submit="addTodo()">
+					<input class="new-todo" autofocus ng-model="newTodo">
 				</form>
 			</header>
 			<!-- This section should be hidden by default and shown when there are todos -->

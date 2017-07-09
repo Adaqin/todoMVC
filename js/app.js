@@ -9,7 +9,18 @@
 				{id:3, content: "我手里拿着小皮鞭我心里正得意", isCompleted: false},
 				{id: 4, content: "不知怎么哗啦啦啦我摔了一身泥", isCompleted: false},
 			]
-
-
+			//1. 实现添加功能
+			$scope.addTodo = function(){
+				if($scope.newTodo.trim()==""){
+					return false;
+				}
+				var newTodu = {
+					id: $scope.todoList.length==0 ? 1 : $scope.todoList[$scope.todoList.length-1].id+1,
+					content: $scope.newTodo,
+					isCompleted: false
+				}
+				$scope.todoList.push(newTodu);
+				$scope.newTodo="";
+			}
 		}])
 })(angular)
