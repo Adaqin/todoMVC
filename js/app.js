@@ -2,7 +2,7 @@
 	"use strict"
 	angular
 		.module("app",[])
-		.controller("todoCtrl",["$scope", function($scope){
+		.controller("todoCtrl",["$scope", "$location", function($scope, $location){
 			$scope.todoList = [
 				{id: 1, content: "我有一只小毛驴我从来也不骑", isCompleted: false},
 				{id: 2, content: "有一天我心血来潮骑着去赶集", isCompleted: true},
@@ -76,6 +76,21 @@
 			}
 			//7. 点击状态按钮进行筛选
 			var status=undefined;
-			
+			//8. 获取hash值, 显示不同内容
+			$scope.$location=$location;
+			$scope.$watch("$location.url()",function(n){
+				switch (n){
+					case  "/":
+					$scope.status=undefined;
+						break;
+					case  "/active":
+					$scope.status=false;
+						break;
+					case  "/completed":
+					$scope.status=true;
+						break;
+
+				}
+			})
 		}])
 })(angular)
