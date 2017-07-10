@@ -64,6 +64,21 @@
 					})
 					$scope.isCheckAll=isCompleted;
 				},true)
-			
+			//6. 清除所有已经完成的内容
+			$scope.clearCompleted=function(){
+				// for(var i=0; i<$scope.todoList.length; i++){
+				// 	if($scope.todoList[i].isCompleted){
+				// 		$scope.todoList.splice(i,1);
+				// 		i--;
+				// 	}
+				// }
+				var todoList=[];
+				for(var i=0; i<$scope.todoList.length; i++){
+					if(!$scope.todoList[i].isCompleted){
+						todoList.push($scope.todoList[i])
+					}
+				}
+				$scope.todoList=todoList;
+			}
 		}])
 })(angular)
