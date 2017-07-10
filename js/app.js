@@ -50,5 +50,20 @@
 				}
 				return count;
 			}
+			//5. 全选操作
+			$scope.isCheckAll=false;
+			$scope.checkAll=function(){
+				for(var i=0; i<$scope.todoList.length; i++){
+					$scope.todoList[i].isCompleted = $scope.isCheckAll;
+				}
+			}
+			//监视下面的li标签
+				$scope.$watch("todoList",function(){
+					var isCompleted = $scope.todoList.every(function(v){
+						return v.isCompleted;
+					})
+					$scope.isCheckAll=isCompleted;
+				},true)
+			
 		}])
 })(angular)
